@@ -1,66 +1,28 @@
-.button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 20px;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	@import url(rainbow.css);
+	.background-red {
+    background-color: red;
 }
 
-.button1 {
-	border-radius: 8px;
+.background-orange {
+    background-color: orange;
 }
 
-.button2 {
-	border-radius: 30%;
+.background-yellow {
+    background-color: yellow;
 }
 
-.red {
-	background-color: #ff0000;
+.background-green {
+    background-color: green;
 }
 
-td{
-	padding:20px;
+.background-blue {
+    background-color: blue;
 }
 
-table{
-	margin-left: auto;
-	margin-right: auto;
+.background-indigo {
+    background-color: indigo;
 }
 
-h1, h2, h3, h4, h5, h6{
-	font-weight: bold;
-}
-.title{
-  color: red;
-  font-family: 'Trebuchet MS', sans-serif; 
-}
-
-.title-large {
-  font-size: 2rem;
-}
-
-.title-small {
-  font-size: .5rem;
-}
-
-#hireButtons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-#footerTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#footerTable td {
-    padding: 10px;
-    background-color: #f9f9f9;
+.background-violet {
+    background-color: violet;
 }
