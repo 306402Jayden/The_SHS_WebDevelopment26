@@ -32,6 +32,26 @@
 
     <!-- Custom styles for this template -->
     <style type="text/css">
+        body {
+            min-height: 100vh;
+            background: linear-gradient(270deg, #ff5f6d, #ffc371, #8ae2fe, #a17fe0, #ff5f6d);
+            background-size: 1000% 1000%;
+            animation: rainbow-light 12s ease infinite;
+            color: #111;
+        }
+
+        @keyframes rainbow-light {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         footer {
             font-size: 12px;
             text-align: center;
@@ -41,12 +61,14 @@
         .demo-content {
             padding: 15px;
             font-size: 18px;
-            background: #dbdfe5;
+            background: rgba(255,255,255,0.85);
+            border-radius: 14px;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
             margin-bottom: 15px;
         }
         
         .demo-content.bg-alt {
-            background: #abb1b8;
+            background: rgba(255,255,255,0.75);
         }
 
         .table-striped > tbody > tr:nth-of-type(odd) > * {
@@ -57,7 +79,7 @@
 
     <body>
         <!---------------------------------- Begin the nav-bar ----------------------------------->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container-fluid">
                 <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -65,32 +87,43 @@
                 </button>
                 
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav me-auto">
-                        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Link
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
-                        </li>
-                        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                      <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+                      <li class="nav-item animate__animated animate__fadeInLeft">
+                        <a href="#" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                      </li>
+                      <li class="nav-item dropdown animate__animated animate__fadeInLeft animate__delay-1s">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-link"></i> Links
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item animate__animated animate__fadeInLeft animate__delay-2s">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                      </li>
+                      <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-primary" type="button">Login</button>
+                    <form id="navbarSearchForm" class="d-flex me-3 animate__animated animate__fadeIn animate__delay-1s" role="search">
+                      <input id="navbarSearchInput" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                      <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
+                    <div class="d-flex align-items-center gap-3">
+                      <a href="#" class="text-white position-relative animate__animated animate__fadeIn animate__delay-2s" title="Notifications">
+                        <i class="fas fa-bell fa-lg"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                      </a>
+                      <a href="#" class="text-white animate__animated animate__fadeIn animate__delay-3s" title="Profile">
+                        <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="User Avatar" class="rounded-circle" width="36" height="36" style="border:2px solid #fff;">
+                      </a>
+                      <button class="btn btn-light animate__animated animate__fadeIn animate__delay-4s" type="button"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -184,6 +217,21 @@
                 <a href="form.html" class="btn btn-success btn-lg" role="button" aria-pressed="true">Form Page</a>
             </div>
         </main>
+
+        <!-- Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="https://via.placeholder.com/500x300?text=Contact+Us" alt="Contact Image" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!---------------------------------- Begin the footer ------------------------------------->
         <footer>
@@ -311,6 +359,89 @@
 <!-- Footer -->
         </footer>
         <!---------------------------------- End the footer --------------------------------------->
+
+        <div id="memeCrashOverlay" class="position-fixed top-0 start-0 vw-100 vh-100 d-none align-items-center justify-content-center text-center p-4" style="background: rgba(0, 0, 0, 0.94); z-index: 1080;">
+          <div class="text-white w-100">
+            <div class="glitch display-1 fw-bold mb-3" data-text="MEME CRASH">MEME CRASH</div>
+            <p class="lead mb-3">The meme machine overloaded and threw a 404. Looks like the internet broke from too much laughter.</p>
+            <img src="https://placehold.co/600x340/111111/ffffff/png?text=404+MEME+NOT+FOUND" alt="404 Meme Not Found" class="img-fluid rounded shadow mb-3 meme-crash-img" style="max-width: 650px;">
+            <button id="memeCrashReset" class="btn btn-danger btn-lg"><i class="fas fa-redo"></i> Reboot Search</button>
+          </div>
+        </div>
+
+        <style>
+          #memeCrashOverlay .meme-crash-img {
+            border: 4px dashed rgba(255,255,255,0.45);
+            filter: saturate(1.2) contrast(1.1);
+          }
+          #memeCrashOverlay .glitch {
+            position: relative;
+            color: #ff4f79;
+            text-shadow: 0 0 16px rgba(255, 79, 121, 0.7), 0 0 24px rgba(255, 255, 255, 0.25);
+          }
+          #memeCrashOverlay .glitch::before,
+          #memeCrashOverlay .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            opacity: 0.8;
+          }
+          #memeCrashOverlay .glitch::before {
+            clip-path: inset(0 0 66% 0);
+            transform: translate(2px, -2px);
+            color: #45f3ff;
+          }
+          #memeCrashOverlay .glitch::after {
+            clip-path: inset(66% 0 0 0);
+            transform: translate(-2px, 2px);
+            color: #fffc5f;
+          }
+          @keyframes glitch-shift {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0, 0); }
+          }
+          #memeCrashOverlay .glitch {
+            animation: glitch-shift 0.4s infinite;
+          }
+          #memeCrashOverlay p {
+            max-width: 700px;
+            margin: 0 auto;
+          }
+        </style>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('navbarSearchForm');
+            var input = document.getElementById('navbarSearchInput');
+            var overlay = document.getElementById('memeCrashOverlay');
+            var resetButton = document.getElementById('memeCrashReset');
+
+            form.addEventListener('submit', function (event) {
+              event.preventDefault();
+              var value = input.value.trim().toLowerCase();
+              if (value.includes('meme')) {
+                overlay.classList.remove('d-none');
+                overlay.classList.add('animate__animated', 'animate__fadeIn');
+                document.body.style.overflow = 'hidden';
+              } else {
+                alert('Search results are not available in this demo. Try searching "memes" for a fun effect!');
+              }
+            });
+
+            resetButton.addEventListener('click', function () {
+              overlay.classList.add('d-none');
+              document.body.style.overflow = '';
+              input.value = '';
+              input.focus();
+            });
+          });
+        </script>
     </body>
 
 </html>
